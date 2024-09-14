@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Trailer Website</title>
+</head>
+<style>
+/* CLEARING */
+    *, html, body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+/* POSITIONING */
+    #trailer {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
+    .intro {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 20px;
+        font-size: 30px;
+        font-family: fantasy;
+        text-align: center;
+    }
+    #btn {
+        margin-top: 20px;
+        border: none;
+        padding: 12px;
+        color: white;
+        background-color: black;
+        border-radius: 3px;
+        font-weight: 600;
+        width: 100px;
+        cursor: pointer;
+    }
+    #btn:hover {
+        background-color: lightgrey;
+        color: black;
+        transition: .1s ease-in;
+    }
+</style>
+<body>
+    <video autoplay muted loop id="trailer">
+        <source src="game_trailer.mp4" type="video/mp4"/>
+    </video>
+    <div class="intro">
+        <img src="roblox-logo.png" alt="" width="150" height="150">
+        <p>Roblox is an online game platform and game creation system developed by Roblox Corporation that allows users to program and play games created by themselves or other users.</p>
+        <button id="btn" onclick="triggerBtn()">PAUSE</button>
+    </div>
+    <script>
+        const trailer = document.getElementById("trailer")
+        const btn = document.getElementById("btn")
+        function triggerBtn() {
+            if(trailer.paused){
+                trailer.play()
+                btn.innerHTML = "PAUSE"
+            } else {
+                trailer.pause()
+                btn.innerHTML = "PLAY"
+            }
+        }
+    </script>
+</body>
+</html>
